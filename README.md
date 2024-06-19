@@ -18,6 +18,9 @@ python3 pipeline_for_frustration_clean.py patho_to_pdbs path_to_results #frames 
 Example: python3 pipeline_for_frustration_clean.py /home/titanx1/Documents/sims/frustra/rfah/traj1/ /home/titanx1/Documents/sims/frustra/rfah/traj1/Results/ 162 0
 
 #sys.argv[1] -> path to pdbs files
+
 #sys.argv[2] -> path where do you want to save the frustration results
+
 #sys.argv[3] -> numbers o frames
+
 #sys.argv[4] -> start frame
