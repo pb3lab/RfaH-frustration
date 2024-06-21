@@ -8,7 +8,7 @@
 
 #sys.argv[1] -> path to pdbs files
 #sys.argv[2] -> path where do you want to save the frustration results
-#sys.argv[3] -> numbers o frames
+#sys.argv[3] -> protein length
 #sys.argv[4] -> start frame
 
 #import libraries
