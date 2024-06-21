@@ -21,7 +21,7 @@ import sys
 
 out_r=open('r_frustration.R','w')
 
-os.system('cd '+sys.argv[2]+';ls *.pdb | wc -l > aux')
+os.system('cd '+sys.argv[1]+';ls *.pdb | wc -l > aux')
 aux=open('aux')
 laux=aux.readline()
 n_pdbs=int(laux.rstrip('\n'))
