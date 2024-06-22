@@ -66,7 +66,7 @@ residues=[]
 print('Start SD and mean calculations')
 for x in range(0, len(mode)):
 	for i in range(sim_start, int(laux),int(tam_vent)):
-	  cmin=np.zeros(l_protein+1)¡
+	  cmin=np.zeros(l_protein+1)
 	  cmax=np.zeros(l_protein+1)
 	  cneu=np.zeros(l_protein+1)
 	  for j in range(i, int(tam_vent)+i):
