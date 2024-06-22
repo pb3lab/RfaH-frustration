@@ -83,12 +83,12 @@ for x in range(0, len(mode)):
 	       fst.close()
 
 	  if i == sim_start: #if the windows y the first one, we save this parameters because we need it for the future comparations (initia window)
-	    for k in range(sim_start, l_protein):
+	    for k in range(sim_start, l_protein+1):
 	      ref_neu[k] = cneu[k]
 	      ref_min[k] = cmin[k]
 	      ref_max[k] = cmax[k]
 	  else: # if te windows is not the first, we compare this with the initial window
-	    for k in range(1, l_protein):
+	    for k in range(1, l_protein+1):
 		if ref_min[k]!= 0:
 		      div_ref_min=(cmin[k])/ref_min[k] #here we calculate th ratio between the Wn and the W0, for the minimally frustrated residues
 		else:
