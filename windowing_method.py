@@ -136,15 +136,15 @@ out_r.write('for(i in as.numeric('+sys.argv[4]+'):as.numeric('+str(n_pdbs)+')){O
 out_r.write('Dynamic_sing <- dynamic_frustration(PdbsDir = PdbsDir, ResultsDir = ResultsDir, OrderList = OrderList,\n')
 out_r.write('                                    GIFs = FALSE, Mode = "singleresidue")\n')
 for j in range(0,len(residues_filterd)):
-   out_r.write('Dynamic_sing <- dynamic_res(Dynamic = Dynamic_sing, Resno = '+residues[j]+', Chain = "X", Graphics = TRUE)\n')
+   out_r.write('Dynamic_sing <- dynamic_res(Dynamic = Dynamic_sing, Resno = '+residues_filterd[j]+', Chain = "X", Graphics = TRUE)\n')
 out_r.write('Dynamic_mutational <- dynamic_frustration(PdbsDir = PdbsDir, ResultsDir = ResultsDir, OrderList = OrderList,\n')
 out_r.write('                                    GIFs = FALSE, Mode = "mutational")\n')
 for j in range(0,len(residues_filterd)):
-   out_r.write('Dynamic_mutational <- dynamic_res(Dynamic = Dynamic_mutational, Resno = '+residues[j]+', Chain = "X", Graphics = TRUE)\n')
+   out_r.write('Dynamic_mutational <- dynamic_res(Dynamic = Dynamic_mutational, Resno = '+residues_filterd[j]+', Chain = "X", Graphics = TRUE)\n')
 out_r.write('Dynamic_configurational <- dynamic_frustration(PdbsDir = PdbsDir, ResultsDir = ResultsDir, OrderList = OrderList,\n')
 out_r.write('                                    GIFs = FALSE, Mode = "configurational")\n')
 for j in range(0,len(residues_filterd)):
-   out_r.write('Dynamic_configurational <- dynamic_res(Dynamic = Dynamic_configurational, Resno = '+residues[j]+', Chain = "X", Graphics = TRUE)\n')
+   out_r.write('Dynamic_configurational <- dynamic_res(Dynamic = Dynamic_configurational, Resno = '+residues_filterd[j]+', Chain = "X", Graphics = TRUE)\n')
 
 out_r.close()
 
