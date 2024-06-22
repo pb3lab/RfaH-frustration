@@ -25,9 +25,6 @@ os.system('cd '+sys.argv[1]+';ls *.pdb | wc -l > aux')
 aux=open('aux')
 laux=aux.readline()
 n_pdbs=int(laux.rstrip('\n'))
-if int(sys.argv[4]) == 0:
-  n_pdbs=int(laux.rstrip('\n')) - 1
-
 os.system('rm '+sys.argv[1]+'aux')
 
 out_r.write('library(reticulate)\n')
@@ -57,7 +54,7 @@ out_ref=open(sys.argv[1]+'Reference.csv','w')
 out_ref.write('Res Min Max Neu CMin CMax CNeu\n')
 
 
-tam_vent=int(float(laux)*0.05) # Here we calculate the window size
+tam_vent=int(float(n_pdbs)*0.05) # Here we calculate the window size
 ref_min=np.zeros(l_protein+1)
 ref_neu=np.zeros(l_protein+1)
 ref_max=np.zeros(l_protein+1)
