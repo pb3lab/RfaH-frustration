@@ -150,6 +150,6 @@ out_r.close()
 
 os.system('Rscript r_residues.R')
 for j in range(0,len(residues_filterd)):
-   os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues[j]+'_X/dynamic5adens_mutational_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
-   os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues[j]+'_X/dynamic5adens_configurational_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
-   os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues[j]+'_X/dynamic_IndexFrustration_singleresidue_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
+   os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues_filterd[j]+'_X/dynamic5adens_mutational_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
+   os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues_filterd[j]+'_X/dynamic5adens_configurational_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
+   os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues_filterd[j]+'_X/dynamic_IndexFrustration_singleresidue_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
