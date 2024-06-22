@@ -89,10 +89,19 @@ for x in range(0, len(mode)):
 	      ref_max[k] = cmax[k]
 	  else: # if te windows is not the first, we compare this with the initial window
 	    for k in range(1, l_protein):
-	      div_ref_min=(cmin[k])/ref_min[k] #here we calculate th ratio between the Wn and the W0, for the minimally frustrated residues
-	      div_ref_max=(cmax[k])/ref_max[k] # for highly frustrated
-	      div_ref_neu=(cneu[k])/ref_neu[k] # for neutral
-	      out_ref.write(str(k)+' '+str(div_ref_min)+' '+str(div_ref_max)+' '+str(div_ref_neu)+' '+str(cmin[k]/tam_vent)+' '+str(cmax[k]/tam_vent)+' '+str(cneu[k]/tam_vent)+'\n')
+		if ref_min[k]!= 0:
+		      div_ref_min=(cmin[k])/ref_min[k] #here we calculate th ratio between the Wn and the W0, for the minimally frustrated residues
+		else:
+			div_ref_min = 0     
+		if ref_max[k]!= 0:
+			div_ref_max=(cmax[k])/ref_max[k] # for highly frustrated
+		else:
+			div_ref_max=0
+		if ref_neu[k]!= 0:
+			div_ref_neu=(cneu[k])/ref_neu[k] # for neutral
+		else:
+			div_ref_neu=0
+		out_ref.write(str(k)+' '+str(div_ref_min)+' '+str(div_ref_max)+' '+str(div_ref_neu)+' '+str(cmin[k]/tam_vent)+' '+str(cmax[k]/tam_vent)+' '+str(cneu[k]/tam_vent)+'\n')
 
 
 	import pandas as pd
