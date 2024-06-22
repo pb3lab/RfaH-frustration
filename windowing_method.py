@@ -112,13 +112,13 @@ for x in range(0, len(mode)):
 	mean_ref_grouped = df.groupby('Res')['Min'].mean()
 	median_dev_grouped = df.groupby('Res')['CMin'].median()
 
-
+        residues_filterd=[]
 	for i in range(0, len(std_dev_grouped)):
 		if mean_ref_grouped.iloc[i] !=0:
 			if std_dev_grouped.iloc[i]/mean_ref_grouped.iloc[i] > 0.4 and float(median_dev_grouped.iloc[i]) > 4: #here we calculates the coefficient of variation if this number is above to 0.4 and the mean of the contacts is higher than 4 the residue change their frustration along the MD
 				print(i+1,median_dev_grouped.iloc[i], std_dev_grouped.iloc[i])
-			if not str((i+1)) in residues:
-				residues.append(str((i+1)))
+			if not str((i+1)) in residues_filterd:
+				 residues_filterd.append(str((i+1)))
 
 #Frustration plots for selected residues using the filters:
 #A scritp the R is generated to generate the output graphs
