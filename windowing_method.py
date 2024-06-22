@@ -117,8 +117,8 @@ for x in range(0, len(mode)):
 		if mean_ref_grouped.iloc[i] !=0:
 			if std_dev_grouped.iloc[i]/mean_ref_grouped.iloc[i] > 0.4 and float(median_dev_grouped.iloc[i]) > 4: #here we calculates the coefficient of variation if this number is above to 0.4 and the mean of the contacts is higher than 4 the residue change their frustration along the MD
 				print(i+1,median_dev_grouped.iloc[i], std_dev_grouped.iloc[i])
-			if not str((i+1)) in residues_filterd:
-				 residues_filterd.append(str((i+1)))
+				if not str((i+1)) in residues_filterd:
+					 residues_filterd.append(str((i+1)))
 
 #Frustration plots for selected residues using the filters:
 #A scritp the R is generated to generate the output graphs
@@ -135,21 +135,21 @@ out_r.write('OrderList <-c()\n')
 out_r.write('for(i in as.numeric('+sys.argv[4]+'):as.numeric('+str(n_pdbs)+')){OrderList <- c(OrderList, paste("pdb",i,".pdb",sep=""))}\n')
 out_r.write('Dynamic_sing <- dynamic_frustration(PdbsDir = PdbsDir, ResultsDir = ResultsDir, OrderList = OrderList,\n')
 out_r.write('                                    GIFs = FALSE, Mode = "singleresidue")\n')
-for j in range(0,len(residues)):
+for j in range(0,len(residues_filterd)):
    out_r.write('Dynamic_sing <- dynamic_res(Dynamic = Dynamic_sing, Resno = '+residues[j]+', Chain = "X", Graphics = TRUE)\n')
 out_r.write('Dynamic_mutational <- dynamic_frustration(PdbsDir = PdbsDir, ResultsDir = ResultsDir, OrderList = OrderList,\n')
 out_r.write('                                    GIFs = FALSE, Mode = "mutational")\n')
-for j in range(0,len(residues)):
+for j in range(0,len(residues_filterd)):
    out_r.write('Dynamic_mutational <- dynamic_res(Dynamic = Dynamic_mutational, Resno = '+residues[j]+', Chain = "X", Graphics = TRUE)\n')
 out_r.write('Dynamic_configurational <- dynamic_frustration(PdbsDir = PdbsDir, ResultsDir = ResultsDir, OrderList = OrderList,\n')
 out_r.write('                                    GIFs = FALSE, Mode = "configurational")\n')
-for j in range(0,len(residues)):
+for j in range(0,len(residues_filterd)):
    out_r.write('Dynamic_configurational <- dynamic_res(Dynamic = Dynamic_configurational, Resno = '+residues[j]+', Chain = "X", Graphics = TRUE)\n')
 
 out_r.close()
 
 os.system('Rscript r_residues.R')
-for j in range(0,len(residues)):
+for j in range(0,len(residues_filterd)):
    os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues[j]+'_X/dynamic5adens_mutational_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
    os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues[j]+'_X/dynamic5adens_configurational_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
    os.system('cp '+sys.argv[2]+'/Dynamic_plots_res_'+residues[j]+'_X/dynamic_IndexFrustration_singleresidue_Res'+residues[j]+'.png '+sys.argv[1]+'/pngs-all/')
