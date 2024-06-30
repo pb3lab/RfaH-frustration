@@ -20,6 +20,8 @@ This GitHub contains the code of the windowing method for the frustration analys
 
 `python3 pipeline_for_frustration_clean.py path_to_pdbs path_to_results #frames #protein_length #sim_start`
 
+The frames of the trajectory to be analyzed must be stored as individual frames in PDB format from 0 to N or 1 to N, where N is the total number of frames
+
 Example:
 
 `python3 pipeline_for_frustration_clean.py /home/pb3lab/Documents/rfah/ /home/pb3lab/Documents/rfah/results/ 162 0`
@@ -30,4 +32,8 @@ Example:
 
 #sys.argv[3] -> numbers of frames
 
-#sys.argv[4] -> start frame
+#sys.argv[4] -> start frame (0 or 1, depending on the PDB numbering)
+
+### Colab Example
+
+A colab notebook is available here [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/pb3lab/RfaH-frustration/blob/main/FrustratometeR_WindowingMethod_Colab.ipynb)
