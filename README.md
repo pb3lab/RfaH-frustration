@@ -36,4 +36,4 @@ Example:
 
 ### Colab Example
 
-A colab notebook is available here [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/pb3lab/RfaH-frustration/blob/main/FrustratometeR_WindowingMethod_Colab.ipynb)
+A colab notebook is available here [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pb3lab/RfaH-frustration/blob/main/FrustratometeR_WindowingMethod_Colab.ipynb)
